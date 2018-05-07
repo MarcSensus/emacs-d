@@ -52,3 +52,9 @@
 ;; minimal rendering by default
 (setq-default shr-inhibit-images t)		; toggle with `I`
 (setq-default shr-use-fonts nil)		; toggle with `F`
+
+;; Magit
+(use-package
+  magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
