@@ -7,7 +7,7 @@
 (defconst emacs-start-time (current-time))
 (unless noninteractive (message "loading %s..." load-file-name))
 ;; Replace Splash Screen with org-mode scratch buffer ;;
-(setq inhibit-splash-screen t initial-scratch-message nil initial-major-mode 'org-mode)
+;;(setq inhibit-splash-screen t initial-scratch-message nil initial-major-mode 'org-mode)
 
 (defun mal-get-fullpath (@file-relative-path)
   (concat (file-name-directory (or load-file-name
@@ -58,7 +58,7 @@
  '(org-agenda-files (quote ("~/org/Sensus.org")))
  '(package-selected-packages
    (quote
-	(magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme))))
+	(realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

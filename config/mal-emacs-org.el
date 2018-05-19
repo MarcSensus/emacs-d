@@ -12,13 +12,13 @@
   :config
   (setq org-startup-indented t)	  ; Enable `org-indent-mode' by default
   ;;(add-hook 'org-mode-hook #'visual-line-mode)
-  (setq org-todo-keywords (quote ((sequence "TODO(t)" "WORKING(w)" "|" "DONE(d)")
+  (setq org-todo-keywords (quote ((sequence "TODO(t)" "WORKING(i)" "|" "DONE(d)")
 								  (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"
 											"PHONE" "MEETING"))))
 
   (setq org-todo-keyword-faces (quote (("TODO" :foreground "red"
 										:weight bold)
-									   ("WORKING" :foreground "blue"
+									   ("WORKING" :foreground "light blue"
 										:weight bold)
 									   ("DONE" :foreground "forest green"
 										:weight bold)
@@ -80,4 +80,4 @@
   (interactive)
   (org-indent-mode 1)
   (recenter-top-bottom))
-										;(define-key key-minor-mode-map (kbd "C-l") 'reflash-indentation)
+;;(define-key key-minor-mode-map (kbd "C-l") 'reflash-indentation)

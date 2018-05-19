@@ -39,6 +39,11 @@
   :config (setq inferior-js-program-command "node"))
 
 (use-package
+  tern
+  :ensure t
+  :config (add-hook 'js2-mode-hook (lambda () (tern-mode t))))
+
+(use-package
   flycheck
   :ensure t
   :init (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))

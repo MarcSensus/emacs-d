@@ -1,3 +1,7 @@
 ;; Auto-generated file; don't edit
-((:url "http://sachachua.com/blog/category/emacs/" :title "emacs –" :time "Mon Apr 16 10:04:11 2018")
+((:url "https://www.reddit.com/r/emacs/" :title "M-x emacs-reddit" :time "Mon May 14 15:59:56 2018")
+ (:url "https://github.com/emacs-mirror/emacs/blob/master/etc/NEWS.26" :title "emacs/NEWS.26 at master · emacs-mirror/emacs · GitHub" :time "Mon May  7 16:26:08 2018")
+ (:url "https://www.reddit.com/r/emacs/comments/8hbp8e/what_window_manager_and_terminal_emulator_do_you/" :title "reddit: the front page of the internet" :time "Mon May  7 15:16:06 2018")
+ (:url "https://blog.d46.us/advanced-emacs-startup/" :title "Advanced Techniques for Reducing Emacs Startup Time" :time "Thu May  3 10:16:20 2018")
+ (:url "http://sachachua.com/blog/category/emacs/" :title "Sacha Chua - Emacs News" :time "Mon Apr 16 10:04:11 2018")
  (:url "http://doc.norang.ca/org-mode.html" :title "Org Mode - Organize Your Life In Plain Text!" :time "Tue Apr  3 15:45:57 2018"))
