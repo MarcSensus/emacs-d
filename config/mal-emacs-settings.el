@@ -14,13 +14,14 @@
   (setq-default tab-width 4)
   (setq tab-stop-list (number-sequence 4 200 4))
   ;; Show column number and line number.
+  (setq-default column-number-indicator-zero-based nil)
   (dolist (mode '(column-number-mode line-number-mode))
 	(when (fboundp mode)
 	  (funcall mode t)))
   (dolist (mode-hook '(text-mode-hook prog-mode-hook))
 	(add-hook mode-hook
 			  (lambda ()
-				(linum-mode 1)))))
+				(setq display-line-number-mode t)))))
 
 (defun gui-settings ()
   "GUI settings for Emacs."
