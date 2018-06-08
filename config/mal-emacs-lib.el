@@ -113,9 +113,33 @@ other, future frames."
     (load-theme 'rebecca t)))
 
 (defun set-cyberpunk-theme ()
-  "Set up and run the rebecca theme."
+  "Set up and run the cyberpunk theme."
   (use-package cyberpunk-theme
     :ensure t
     :pin melpa-stable
     :config
     (load-theme 'cyberpunk t)))
+
+(defun set-exotica-theme ()
+  "Set up and run the exotica theme."
+  (use-package exotica-theme
+    :ensure t
+    :config
+    (load-theme 'exotica t)))
+
+(defun set-70s-theme ()
+  "Set up and run the mbo70s theme."
+  (use-package mbo70s-theme
+    :ensure t
+    :config
+    (load-theme 'mbo70s t)))
+
+(defun set-org-beautify-theme ()
+  "Set up and run the org stacking theme."
+  (use-package org-beautify-theme
+    :ensure t
+    :config
+    (load-theme 'org-beautify t)))
+
+(defun set-wy-theme ()
+  (load-file "~/.emacs.d/git-packages/weyland-yutani-theme.el"))

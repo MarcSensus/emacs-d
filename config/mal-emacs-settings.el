@@ -66,10 +66,13 @@
 ;; Theme
 (when window-system
   ;;(apply-theme 'set-solarized-theme)
-  (apply-theme 'set-nord-theme)
+  ;;(apply-theme 'set-nord-theme)
   ;;(apply-theme 'set-rebecca-theme)
   ;;(apply-theme 'set-cyberpunk-theme)
+  (apply-theme 'set-exotica-theme)
+  (apply-theme 'set-org-beautify-theme)
   )
 
 ;; Startup
 (split-window-horizontally)
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
