@@ -69,6 +69,7 @@
   ;;(apply-theme 'set-nord-theme)
   ;;(apply-theme 'set-rebecca-theme)
   ;;(apply-theme 'set-cyberpunk-theme)
+  ;;(apply-theme 'set-70s-theme)
   (apply-theme 'set-exotica-theme)
   (apply-theme 'set-org-beautify-theme)
   )

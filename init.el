@@ -21,7 +21,9 @@
 (defun init-package-manager ()
   "Set up Emacs package manager with use-package."
   (require 'package)
-  (setq package-enable-at-startup nil)
+  (setq-default
+    load-prefer-newer t
+    package-enable-at-startup nil)
   (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
@@ -33,15 +35,38 @@
 (sensible-defaults/use-all-keybindings)
 (init-package-manager)
 
+;; Basic Dependencies
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
 
 (add-to-list 'load-path "~/.emacs.d/git-packages")
 
 (defconst toc:emacs-config-dir "~/.emacs.d/config/"
   "")
 (load-file "~/.emacs.d/config/mal-emacs-lib.el")
+
+;; Emax Binaries
+(defvar emax-root (concat (expand-file-name "~") "/emax"))
+(defvar emax-bin (concat emax-root "/bin"))
+(defvar emax-bin64 (concat emax-root "/bin64"))
+(defvar emax-mingw64 (concat emax-root "/mingw64/bin"))
+(defvar emax-lisp (concat emax-root "/lisp"))
+
+(setq exec-path (cons emax-bin exec-path))
+(setenv "PATH" (concat emax-bin ";" (getenv "PATH")))
+
+(setq exec-path (cons emax-bin64 exec-path))
+(setenv "PATH" (concat emax-bin64 ";" (getenv "PATH")))
+
+(setq exec-path (cons emax-mingw64 exec-path))
+(setenv "PATH" (concat emax-mingw64 ";" (getenv "PATH")))
+
+(setenv "PATH" (concat "C:\\msys64\\usr\\bin;C:\\msys64\\mingw64\\bin;" (getenv "PATH")))
+
+(dolist (dir '("~/emax/" "~/emax/bin/" "~/emax/bin64/" "~/emax/mingw64/bin/" "~/emax/lisp/" "~/emax/elpa/"))
+(add-to-list 'load-path dir))
 
 ;; Load my configuration files.
 (toc:load-config-file '("mal-emacs-settings.el" "mal-emacs-org.el" "mal-emacs-javascript.el"

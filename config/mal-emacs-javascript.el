@@ -34,6 +34,12 @@
 			  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
 
 (use-package
+  add-node-modules-path
+  :ensure t
+  :config
+  (add-hook 'js2-mode-hook #'add-node-modules-path))
+
+(use-package
   js-comint
   :ensure t
   :config (setq inferior-js-program-command "node"))
