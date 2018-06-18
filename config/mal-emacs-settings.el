@@ -46,19 +46,22 @@
 	  delete-old-versions t kept-new-versions 6 kept-old-versions 2 version-control t) ; use versioned backups
 
 ;; IDO Mode
-(ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;;(ido-mode 1)
+;;(setq ido-enable-flex-matching t)
+;;(setq ido-everywhere t)
 
 ;; Key Bindings
 (global-set-key (kbd "C-x 2") 'split-window-below-and-switch)
 (global-set-key (kbd "C-x 3") 'split-window-right-and-switch)
 (global-set-key (kbd "C-x p") 'eval-buffer)
 (global-set-key (kbd "C-x C-g") 'rgrep)
+(global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "C-c i") 'helm-imenu)
 
 ;; Font Settings
 ;;(set-frame-font "Fira Code 10" nil t)
-(setq-default default-font "Fira Code")
+;;(setq-default default-font "Fira Code")
+(setq-default default-font "Hack")
 (setq-default default-font-size 10)
 (set-font-size)
 (when window-system (set-frame-size (selected-frame) 180 50))

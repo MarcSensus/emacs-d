@@ -52,19 +52,22 @@
 (use-package
   flycheck
   :ensure t
-  :init (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+  :init (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc javascript-jshint))
   (setq-default js2-mode-show-parse-errors nil)
   (setq-default js2-mode-show-strict-warnings nil)
-  :config (add-hook 'after-init-hook #'global-flycheck-mode)
-  '((js2-mode (flycheck-checker . javascript-standard)))
-  '(flycheck-select-checker 'javascript-standard))
+  :config (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package
   prettier-js
   :ensure t
-  :config (setq prettier-js-args '("--print-width" "80" "--use-tabs" "true" "--no-semi" "true"
+  :config (setq prettier-js-args '("--print-width" "100" "--use-tabs" "true" "--no-semi" "true"
 								   "--single-quote" "true"))
-  (add-hook 'js2-mode-hook 'prettier-js-mode))
+  ;;(add-hook 'js2-mode-hook 'prettier-js-mode)
+  )
+
+(use-package
+  realgud
+  :ensure t)
 
 (setq inferior-js-mode-hook
 	  (lambda ()

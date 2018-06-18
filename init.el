@@ -27,6 +27,7 @@
   (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+  (setq package-archive-priorities '(("melpa-stable" . 10) ("marmalade" . 8) ("melpa" . 6)))
   (setq-default package-archive-enable-alist '(("melpa" deft magit)))
   (package-initialize))
 
@@ -66,7 +67,12 @@
 (setenv "PATH" (concat "C:\\msys64\\usr\\bin;C:\\msys64\\mingw64\\bin;" (getenv "PATH")))
 
 (dolist (dir '("~/emax/" "~/emax/bin/" "~/emax/bin64/" "~/emax/mingw64/bin/" "~/emax/lisp/" "~/emax/elpa/"))
-(add-to-list 'load-path dir))
+  (add-to-list 'load-path dir))
+
+;; *scratch* is immortal
+(add-hook 'kill-buffer-query-functions
+          (lambda () (not (member (buffer-name) '("*scratch*" "scratch.el")))))
+(find-file (expand-file-name "scratch.el" user-emacs-directory))
 
 ;; Load my configuration files.
 (toc:load-config-file '("mal-emacs-settings.el" "mal-emacs-org.el" "mal-emacs-javascript.el"
@@ -83,7 +89,7 @@
  '(org-agenda-files (quote ("~/org/Sensus.org")))
  '(package-selected-packages
    (quote
-	(org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2))))
+	(org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
