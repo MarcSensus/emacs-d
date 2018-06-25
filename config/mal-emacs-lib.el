@@ -32,6 +32,13 @@
   (local-set-key "\C-m" 'newline-and-text-indent))
 ;;(add-hook 'text-mode-hook 'my-custom-settings-fn)
 
+;; Helper to only execute some things on Windows.
+(defmacro help/on-windows (statement &rest statements)
+  "Evaluate the enclosed body only when run on Microsoft Windows."
+  `(when (eq system-type 'windows-nt)
+     ,statement
+     ,@statements))
+
 ;; utility function to auto-load my package configurations
 (defun toc:load-config-file (filelist)
   (dolist (file filelist)
@@ -54,13 +61,12 @@
 (defun apply-theme (theme-function)
   "Takes the theme set up function and apply it to the proper environemnts.
 THEME-FUNCTION: function that initializes the themes and settings."
-  (when window-system
-    (funcall theme-function))
+  (when window-system (funcall theme-function))
   (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (funcall theme-function)))
-    (funcall theme-function)))
+	  (add-hook 'after-make-frame-functions
+				(lambda (frame)
+				  (funcall theme-function)))
+	(funcall theme-function)))
 
 (defun font-code ()
   "Return a string representing the current font (like \"Inconsolata-14\")."
@@ -71,75 +77,73 @@ THEME-FUNCTION: function that initializes the themes and settings."
 Set that for the current frame, and also make it the default for
 other, future frames."
   (let ((font-code (font-code)))
-    (add-to-list 'default-frame-alist (cons 'font font-code))
-    (set-frame-font font-code)))
+	(add-to-list 'default-frame-alist (cons 'font font-code))
+	(set-frame-font font-code)))
 
-; THEMES
+										; THEMES
 (defun set-solarized-theme ()
   "Set up and run the solarized theme."
-  (use-package solarized-theme
-    :ensure t
-    :pin melpa-stable
-    :init
-    (fringe-mode 15)
-    (setq-default solarized-use-variable-pitch nil)
-    (setq-default solarized-high-contrast-mode-line nil)
-    (setq-default solarized-use-less-bold t)
-    (setq-default solarized-use-more-italic nil)
-    (setq-default solarized-emphasize-indicators t)
-    (setq-default solarized-scale-org-headlines nil)
-    (setq x-underline-at-descent-line t)
-    :config
-    (load-theme 'solarized-dark t)))
+  (use-package
+	solarized-theme
+	:ensure t
+	:pin melpa-stable
+	:init (fringe-mode 15)
+	(setq-default solarized-use-variable-pitch nil)
+	(setq-default solarized-high-contrast-mode-line nil)
+	(setq-default solarized-use-less-bold t)
+	(setq-default solarized-use-more-italic nil)
+	(setq-default solarized-emphasize-indicators t)
+	(setq-default solarized-scale-org-headlines nil)
+	(setq x-underline-at-descent-line t)
+	:config (load-theme 'solarized-dark t)))
 
 (defun set-nord-theme ()
   "Set up and run the nord theme."
-  (use-package nord-theme
-    :ensure t
-    :pin melpa-stable
-    :init
-    (setq-default node-uniform-mode-lines t)
-    (setq-default nord-comment-brightness 15)
-    (setq-default node-region-highlight "frost")
-    :config
-    (load-theme 'nord t)))
+  (use-package
+	nord-theme
+	:ensure t
+	:pin melpa-stable
+	:init (setq-default node-uniform-mode-lines t)
+	(setq-default nord-comment-brightness 15)
+	(setq-default node-region-highlight "frost")
+	:config (load-theme 'nord t)))
 
 (defun set-rebecca-theme ()
   "Set up and run the rebecca theme."
-  (use-package rebecca-theme
-    :ensure t
-    :pin melpa-stable
-    :config
-    (load-theme 'rebecca t)))
+  (use-package
+	rebecca-theme
+	:ensure t
+	:pin melpa-stable
+	:config (load-theme 'rebecca t)))
 
 (defun set-cyberpunk-theme ()
   "Set up and run the cyberpunk theme."
-  (use-package cyberpunk-theme
-    :ensure t
-    :pin melpa-stable
-    :config
-    (load-theme 'cyberpunk t)))
+  (use-package
+	cyberpunk-theme
+	:ensure t
+	:pin melpa-stable
+	:config (load-theme 'cyberpunk t)))
 
 (defun set-exotica-theme ()
   "Set up and run the exotica theme."
-  (use-package exotica-theme
-    :ensure t
-    :config
-    (load-theme 'exotica t)))
+  (use-package
+	exotica-theme
+	:ensure t
+	:config (load-theme 'exotica t)))
 
 (defun set-70s-theme ()
   "Set up and run the mbo70s theme."
-  (use-package mbo70s-theme
-    :ensure t
-    :config
-    (load-theme 'mbo70s t)))
+  (use-package
+	mbo70s-theme
+	:ensure t
+	:config (load-theme 'mbo70s t)))
 
 (defun set-org-beautify-theme ()
   "Set up and run the org stacking theme."
-  (use-package org-beautify-theme
-    :ensure t
-    :config
-    (load-theme 'org-beautify t)))
+  (use-package
+	org-beautify-theme
+	:ensure t
+	:config (load-theme 'org-beautify t)))
 
 (defun set-wy-theme ()
   (load-file "~/.emacs.d/git-packages/weyland-yutani-theme.el"))

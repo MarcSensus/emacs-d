@@ -56,6 +56,7 @@
 (global-set-key (kbd "C-x p") 'eval-buffer)
 (global-set-key (kbd "C-x C-g") 'rgrep)
 (global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "C-c s") 'window-swap-states)
 (global-set-key (kbd "C-c i") 'helm-imenu)
 
 ;; Font Settings
@@ -70,12 +71,25 @@
 (when window-system
   ;;(apply-theme 'set-solarized-theme)
   ;;(apply-theme 'set-nord-theme)
-  ;;(apply-theme 'set-rebecca-theme)
+  (apply-theme 'set-rebecca-theme)
   ;;(apply-theme 'set-cyberpunk-theme)
   ;;(apply-theme 'set-70s-theme)
-  (apply-theme 'set-exotica-theme)
+  ;;(apply-theme 'set-exotica-theme)
   (apply-theme 'set-org-beautify-theme)
   )
+
+;; Windows Specific
+(help/on-windows
+ (setq shell-file-name "cmdproxy.exe"))
+
+(help/on-windows
+ (setq w32-pass-lwindow-to-system nil)
+ (defvar w32-lwindow-modifier 'super)
+ (setq w32-pass-rwindow-to-system nil)
+ (defvar w32-rwindow-modifier 'super))
+
+(help/on-windows
+  (set-clipboard-coding-system 'utf-16le-dos))
 
 ;; Startup
 (split-window-horizontally)

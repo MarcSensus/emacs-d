@@ -86,4 +86,3 @@
   (interactive)
   (org-indent-mode 1)
   (recenter-top-bottom))
-;;(define-key key-minor-mode-map (kbd "C-l") 'reflash-indentation)

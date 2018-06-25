@@ -21,6 +21,10 @@
   elisp-format
   :ensure t)
 
+(use-package
+  transpose-frame
+  :ensure t)
+
 ;; Rainbow Delimeters
 (use-package
   rainbow-delimiters
@@ -64,6 +68,15 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-global-mode t)
+  (global-set-key (kbd "s-c") #'projectile-find-file)
+  (help/on-windows
+   (setq projectile-indexing-method 'alien))
+  :diminish projectile-mode)
+
 ;; Helm
 (use-package
   helm
@@ -105,6 +118,3 @@
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-
-
-
