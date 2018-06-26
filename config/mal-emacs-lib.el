@@ -39,7 +39,12 @@
      ,statement
      ,@statements))
 
-;; utility function to auto-load my package configurations
+;; Macro to add block comments that for some reason elisp doesn't have.
+(defmacro comment (&rest body)
+  "Comment out one or more s-expressions."
+  nil)
+
+;; Utility function to auto-load my package configurations.
 (defun toc:load-config-file (filelist)
   (dolist (file filelist)
 	(load (expand-file-name (concat toc:emacs-config-dir file)))

@@ -70,7 +70,7 @@
 (use-package
   org-trello
   :ensure t
-  :init (custom-set-variables '(org-trello-files '("~/org/trello.org" "~/org/ebd.org"))))
+  :init (custom-set-variables '(org-trello-files '("~/org/trello.org" "~/org/trello-2018.org"))))
 
 ;; Capture Templates
 (setq org-capture-templates '(("c" "Cookbook" entry (file "~/org/cookbook.org")

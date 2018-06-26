@@ -8,6 +8,35 @@
   :ensure t
   :bind (("<f9>" . sr-speedbar-toggle)))
 
+;; IDO Mode
+(require 'ido)
+(ido-mode 1)
+;;(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(use-package
+  ido-completing-read+
+  :config (ido-ubiquitous-mode 1))
+(use-package
+  smex
+  :config (smex-initialize)
+  :bind ("M-x" . 'smex)
+  ("M-X" . 'smex-major-mode-commands)
+  ;; This is your old M-x.
+  ("C-c C-c M-x" . 'execute-extended-command))
+
+(use-package
+  flx-ido
+  :config (flx-ido-mode 1)
+  ;; disable ido faces to see flx highlights.
+  (setq ido-enable-flex-matching t)
+  (setq ido-use-faces nil))
+(use-package
+  ido-vertical-mode
+  :config (ido-vertical-mode 1)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+(require 'icomplete)
+(icomplete-mode 1)
+
 (use-package
   markdown-mode
   :ensure t
@@ -78,10 +107,12 @@
   :diminish projectile-mode)
 
 ;; Helm
+(comment
 (use-package
   helm
   :ensure t
   :demand t
+  :bind ("C-c i" . 'helm-imenu)
   :config
     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
     (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
@@ -111,10 +142,11 @@
           helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
           helm-ff-file-name-history-use-recentf t
           helm-echo-input-in-header-line t)))
+)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;;(global-set-key (kbd "C-c h") 'helm-command-prefix)
+;;(global-unset-key (kbd "C-x c"))
+;;(global-set-key (kbd "C-x C-f") 'helm-find-files)
