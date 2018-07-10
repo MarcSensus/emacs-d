@@ -16,6 +16,7 @@
 (load-file "~/.emacs.d/git-packages/sensible-defaults/sensible-defaults.el")
 (sensible-defaults/use-all-settings)
 (sensible-defaults/use-all-keybindings)
+(setq enable-local-variables :safe)
 
 ;; Package Managers
 (defun init-package-manager ()
@@ -91,7 +92,7 @@
  '(org-trello-files (quote ("~/org/trello.org" "~/org/ebd.org")) nil (org-trello))
  '(package-selected-packages
    (quote
-	(smex ido-completing-read+ flx-ido ido-vertical-mode projectile transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2)))
+	(newlisp-mode flycheck-elixir elixir-mode smex ido-completing-read+ flx-ido ido-vertical-mode projectile add-node-modules-path delight transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2)))
  '(safe-local-variable-values (quote ((flycheck-disabled-checkers emacs-lisp-checkdoc)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
