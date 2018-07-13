@@ -104,6 +104,11 @@
    (setq projectile-indexing-method 'alien))
   :diminish projectile-mode)
 
+(use-package
+  which-key
+  :ensure t
+  :config (which-key-mode))
+
 ;; Helm
 (comment
  (use-package
@@ -143,8 +148,6 @@
 ;;(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; Elixir Programming
-(require 'flycheck-elixir)
-(add-hook 'elixir-mode-hook 'flycheck-mode)
 (use-package
   elixir-mode
   :ensure t
@@ -153,7 +156,11 @@
 					  (add-hook 'before-save-hook 'elixir-format nil t))))
 (use-package
   flycheck-elixir
+  :ensure t
   :config (add-hook 'elixir-mode-hook 'flycheck-mode))
+(use-package
+  alchemist
+  :ensure t)
 
 ;; NewLISP Programming
 (use-package

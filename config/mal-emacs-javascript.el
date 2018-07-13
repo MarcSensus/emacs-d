@@ -65,6 +65,11 @@
   ;;(add-hook 'js2-mode-hook 'prettier-js-mode)
   )
 
+;; Org mode bindings for literate programming.
+(use-package
+  ob-js
+  :ensure t)
+
 (use-package
   realgud
   :ensure t)

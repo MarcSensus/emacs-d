@@ -52,6 +52,7 @@
 (global-set-key (kbd "C-x C-g") 'rgrep)
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "C-x o") 'window-swap-states)
+(global-set-key (kbd "M-p") 'cperl-perldoc)
 ;;(global-set-key (kbd "C-c i") 'helm-imenu)
 
 ;; Font Settings
