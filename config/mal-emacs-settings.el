@@ -85,7 +85,15 @@
  (defvar w32-rwindow-modifier 'super))
 
 (help/on-windows
-  (set-clipboard-coding-system 'utf-16le-dos))
+ (set-clipboard-coding-system 'utf-16le-dos))
+
+;; Evil mode?
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+  (global-undo-tree-mode -1)
+  )
 
 ;; Startup
 (split-window-horizontally)

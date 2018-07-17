@@ -15,22 +15,27 @@
 (setq ido-everywhere t)
 (use-package
   ido-completing-read+
+  :ensure t
   :config (ido-ubiquitous-mode 1))
 (use-package
   smex
+  :ensure t
   :config (smex-initialize)
-  :bind ("M-x" . 'smex)
-  ("M-X" . 'smex-major-mode-commands)
+  :bind (("M-x" . smex)
+  ("M-X" . smex-major-mode-commands))
   ;; This is your old M-x.
-  ("C-c C-c M-x" . 'execute-extended-command))
+  ;; ("C-c C-c M-x" . 'execute-extended-command)
+  )
 (use-package
   flx-ido
+  :ensure t
   :config (flx-ido-mode 1)
   ;; disable ido faces to see flx highlights.
   (setq ido-enable-flex-matching t)
   (setq ido-use-faces nil))
 (use-package
   ido-vertical-mode
+  :ensure t
   :config (ido-vertical-mode 1)
   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 (require 'icomplete)
@@ -103,6 +108,10 @@
   (help/on-windows
    (setq projectile-indexing-method 'alien))
   :diminish projectile-mode)
+
+(use-package window-purpose
+  :config
+  (purpose-mode))
 
 (use-package
   which-key

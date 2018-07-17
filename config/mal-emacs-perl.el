@@ -1,3 +1,4 @@
+;;; PERL 5 ;;;
 ;; Replace perl mode with cperl mode globally.
 (defalias 'perl-mode 'cperl-mode)
 
@@ -28,3 +29,5 @@
 
 (use-package flycheck-perl6
   :ensure t)
+
+;;; GO ;;;
