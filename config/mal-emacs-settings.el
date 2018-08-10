@@ -53,7 +53,6 @@
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "C-x o") 'window-swap-states)
 (global-set-key (kbd "M-p") 'cperl-perldoc)
-;;(global-set-key (kbd "C-c i") 'helm-imenu)
 
 ;; Font Settings
 ;;(set-frame-font "Fira Code 10" nil t)
@@ -71,7 +70,7 @@
   ;;(apply-theme 'set-cyberpunk-theme)
   ;;(apply-theme 'set-70s-theme)
   ;;(apply-theme 'set-exotica-theme)
-  (apply-theme 'set-org-beautify-theme)
+  ;;(apply-theme 'set-org-beautify-theme)
   )
 
 ;; Windows Specific

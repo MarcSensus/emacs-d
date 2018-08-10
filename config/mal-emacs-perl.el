@@ -31,3 +31,8 @@
   :ensure t)
 
 ;;; GO ;;;
+
+
+;;; Clojure ;;;
+(use-package cider
+  :ensure t)
