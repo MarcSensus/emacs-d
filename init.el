@@ -1,5 +1,6 @@
 (server-start)
-(setq debug-on-error t)
+;; Don't debug on recoverable errors.
+(setq debug-on-error nil)
 
 (setq user-full-name "Marc Lehman")
 (setq user-mail-address "marc.lehman@xyleminc.com")

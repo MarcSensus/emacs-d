@@ -10,29 +10,62 @@
   "Command to kill a compilation launched by `mode-compile'" t)
 (global-set-key "\C-ck" 'mode-compile-kill)
 
-(use-package pod-mode
+(use-package
+  pod-mode
   :ensure t)
-(add-to-list 'auto-mode-alist
-  '("\\\\.pod$" . pod-mode))
-; You might appreciate turning on these
-;   features by default for Pod:
-(add-hook 'pod-mode-hook '(lambda ( ) (progn
- (font-lock-mode)   ; =syntax highlighting
- (auto-fill-mode 1) ; =wordwrap
- (flyspell-mode 1)  ; =spellchecking
-)))
+(add-to-list 'auto-mode-alist '("\\\\.pod$" . pod-mode))
+										; You might appreciate turning on these
+										;   features by default for Pod:
+(add-hook 'pod-mode-hook
+		  '(lambda ( )
+			 (progn (font-lock-mode)	; =syntax highlighting
+					(auto-fill-mode 1)	; =wordwrap
+					(flyspell-mode 1)	; =spellchecking
+					)))
 
 ;;; PERL 6 ;;;
-(use-package perl6-mode
+(use-package
+  perl6-mode
   :ensure t
   :defer t)
 
-(use-package flycheck-perl6
+(use-package
+  flycheck-perl6
   :ensure t)
 
 ;;; GO ;;;
+;; Define function to call when go-mode loads
+(defun my-go-mode-hook ()
+  (add-hook 'before-save-hook 'gofmt-before-save) ; gofmt before every save
+  (setq gofmt-command "goimports")                ; gofmt uses invokes goimports
+  (if (not (string-match "go" compile-command))   ; set compile command default
+      (set (make-local-variable 'compile-command) "go build -v && go test -v && go vet"))
 
+  ;; guru settings
+  (go-guru-hl-identifier-mode)			; highlight identifiers
+
+  ;; Key bindings specific to go-mode
+  (local-set-key (kbd "M-.") 'godef-jump)	  ; Go to definition
+  (local-set-key (kbd "M-*") 'pop-tag-mark)	  ; Return from whence you came
+  (local-set-key (kbd "M-p") 'compile)		  ; Invoke compiler
+  (local-set-key (kbd "M-P") 'recompile)	  ; Redo most recent compile cmd
+  (local-set-key (kbd "M-]") 'next-error)	  ; Go to next error (or msg)
+  (local-set-key (kbd "M-[") 'previous-error) ; Go to previous error or msg
+
+  ;; Misc go stuff
+  (auto-complete-mode 1))				; Enable auto-complete mode
+
+;; Connect go-mode-hook with the function we just defined
+(add-hook 'go-mode-hook 'my-go-mode-hook)
+
+;; Ensure the go specific autocomplete is active in go-mode.
+(with-eval-after-load 'go-mode
+  (require 'go-autocomplete))
+
+;; If the go-guru.el file is in the load path, this will load it.
+(require 'go-guru)
 
 ;;; Clojure ;;;
-(use-package cider
+(use-package
+  cider
   :ensure t)
