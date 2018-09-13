@@ -35,12 +35,12 @@
 ;; Helper to only execute some things on Windows.
 (defmacro help/on-windows (statement &rest statements)
   "Evaluate the enclosed body only when run on Microsoft Windows."
-  `(when (eq system-type 'windows-nt)
-     ,statement
-     ,@statements))
+  `(when (eq system-type 'windows-nt) ,statement ,@statements))
 
 ;; Macro to add block comments that for some reason elisp doesn't have.
-(defmacro comment (&rest body)
+(defmacro comment
+	(&rest
+	 body)
   "Comment out one or more s-expressions."
   nil)
 
@@ -49,6 +49,11 @@
   (dolist (file filelist)
 	(load (expand-file-name (concat toc:emacs-config-dir file)))
 	(message "Loaded config file:%s" file)))
+
+;; Load locked desktop
+(defun load-locked-desktop ()
+  (setq desktop-load-locked-desktop t)
+  (call-interactively 'desktop-read t (vector "~/.emacs.d/desktops/" t)))
 
 ;; Misc util functions
 (defun split-window-below-and-switch ()
@@ -71,7 +76,7 @@ THEME-FUNCTION: function that initializes the themes and settings."
 	  (add-hook 'after-make-frame-functions
 				(lambda (frame)
 				  (funcall theme-function)))
-	(funcall theme-function)))
+	  (funcall theme-function)))
 
 (defun font-code ()
   "Return a string representing the current font (like \"Inconsolata-14\")."

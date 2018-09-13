@@ -22,7 +22,7 @@
   :ensure t
   :config (smex-initialize)
   :bind (("M-x" . smex)
-  ("M-X" . smex-major-mode-commands))
+		 ("M-X" . smex-major-mode-commands))
   ;; This is your old M-x.
   ;; ("C-c C-c M-x" . 'execute-extended-command)
   )
@@ -109,10 +109,10 @@
    (setq projectile-indexing-method 'alien))
   :diminish projectile-mode)
 
-(use-package window-purpose
+(use-package
+  window-purpose
   :ensure t
-  :config
-  (purpose-mode))
+  :config (purpose-mode))
 
 (use-package
   which-key
@@ -138,3 +138,13 @@
 (use-package
   newlisp-mode
   :ensure t)
+
+;; Calendar Config
+(copy-face font-lock-constant-face 'calendar-iso-week-face)
+(set-face-attribute 'calendar-iso-week-face nil
+					:height 1.0
+					:foreground "salmon")
+(setq calendar-intermonth-text '(propertize (format "%2d" (car (calendar-iso-from-absolute
+																(calendar-absolute-from-gregorian
+																 (list month day year)))))
+											'font-lock-face 'calendar-iso-week-face))

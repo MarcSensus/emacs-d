@@ -76,4 +76,7 @@ ido.last
 /url/cookies
 /request/curl-cookie-jar
 
+# semantic extension
+/semanticdb
+
 # End of https://www.gitignore.io/api/emacs

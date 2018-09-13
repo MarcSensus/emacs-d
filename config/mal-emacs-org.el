@@ -62,10 +62,10 @@
   org-chef
   :ensure t)
 
-(use-package
+(comment(use-package
   org-jira
   :ensure t
-  :init (setq jiralib-url "https://xyleminc.atlassian.net"))
+  :init (setq jiralib-url "https://xyleminc.atlassian.net")))
 
 (use-package
   org-trello
