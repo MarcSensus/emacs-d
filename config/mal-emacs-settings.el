@@ -92,6 +92,7 @@
   :config
   (evil-mode 1)
   (global-undo-tree-mode -1)
+  (add-to-list 'evil-emacs-state-modes 'eww-mode)
   )
 
 ;; Startup

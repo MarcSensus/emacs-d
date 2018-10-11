@@ -78,5 +78,6 @@ ido.last
 
 # semantic extension
 /semanticdb
+ac-comphist.dat
 
 # End of https://www.gitignore.io/api/emacs

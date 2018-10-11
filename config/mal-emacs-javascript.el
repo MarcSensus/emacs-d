@@ -60,7 +60,7 @@
 (use-package
   prettier-js
   :ensure t
-  :config (setq prettier-js-args '("--print-width" "100" "--use-tabs" "true" "--no-semi" "true"
+  :config (setq prettier-js-args '("--print-width" "100" "--use-tabs" "false" "--no-semi" "true"
 								   "--single-quote" "true"))
   ;;(add-hook 'js2-mode-hook 'prettier-js-mode)
   )

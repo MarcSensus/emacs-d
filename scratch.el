@@ -16,5 +16,6 @@
 (apply-theme 'set-org-beautify-theme)
 (disable-theme <theme-in-use>)
 (load-file "~/.emacs.d/git-packages/weyland-yutani-theme.el")
+(load-locked-desktop)
 
 ;; Real scratch under here.
