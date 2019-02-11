@@ -74,12 +74,12 @@
   dashboard
   :config (dashboard-setup-startup-hook))
 
-;; Workgroup support.
-(use-package
-  workgroups2
-  :ensure t
-  :config (setq wg-session-load-on-start nil)
-  (workgroups-mode 1))
+;; ;; Workgroup support.
+;; (use-package
+;;   workgroups2
+;;   :ensure t
+;;   :config (setq wg-session-load-on-start nil)
+;;   (workgroups-mode 1))
 
 ;; EWW
 (defun my/eww-toggle-images ()
@@ -103,21 +103,28 @@
 (use-package
   projectile
   :ensure t
-  :config (projectile-global-mode t)
+  :config (projectile-mode t)
   (global-set-key (kbd "s-c") #'projectile-find-file)
   (help/on-windows
    (setq projectile-indexing-method 'alien))
   :diminish projectile-mode)
 
-(use-package
-  window-purpose
-  :ensure t
-  :config (purpose-mode))
+;; (comment(use-package
+;;   window-purpose
+;;   :ensure t
+;;   :config (purpose-mode)))
 
-(use-package
-  which-key
-  :ensure t
-  :config (which-key-mode))
+;; (comment(use-package
+;;   which-key
+;;   :ensure t
+;;   :config (which-key-mode)
+;;           (setq purpose-user-mode-purposes
+;;             '((org-mode . org)
+;;               (eshell-mode . terminal)
+;;               (shell-mode . terminal)
+;;               (go-mode . edit)
+;;               (markdown-mode . org)))
+;;           (purpose-compile-user-configuration)))
 
 ;; Elixir Programming
 (use-package

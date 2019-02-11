@@ -8,7 +8,7 @@
   (setq-default show-paren-delay 0)
   (setq scroll-conservatively 100)
   (setq compilation-scroll-output t)
-  (setq x-select-enable-clipboard t)
+  (setq select-enable-clipboard t)
   ;;Indentation rules.
   (setq-default indent-tabs-mode t)
   (setq-default tab-width 4)
@@ -97,4 +97,4 @@
 
 ;; Startup
 (split-window-horizontally)
-(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+;;(add-hook 'window-setup-hook 'toggle-frame-maximized t)

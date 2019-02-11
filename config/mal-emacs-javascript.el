@@ -66,9 +66,9 @@
   )
 
 ;; Org mode bindings for literate programming.
-(comment(use-package
-  ob-js
-  :ensure t))
+;; (comment(use-package
+;;   ob-js
+;;   :ensure t))
 
 (use-package
   realgud

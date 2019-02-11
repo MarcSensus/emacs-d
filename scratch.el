@@ -19,3 +19,6 @@
 (load-locked-desktop)
 
 ;; Real scratch under here.
+(emacs-init-time)
+(gc-cons-threshold)
+(byte-recompile-directory (expand-file-name "~/.emacs.d/config") 0)
