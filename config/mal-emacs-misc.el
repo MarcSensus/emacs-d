@@ -155,3 +155,8 @@
 																(calendar-absolute-from-gregorian
 																 (list month day year)))))
 											'font-lock-face 'calendar-iso-week-face))
+
+;; Free Keys
+(use-package
+  free-keys
+  :ensure t)

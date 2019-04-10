@@ -55,26 +55,31 @@
   "")
 (load-file "~/.emacs.d/config/mal-emacs-lib.el")
 
-;; Emax Binaries
-(defvar emax-root (concat (expand-file-name "~") "/emax"))
-(defvar emax-bin (concat emax-root "/bin"))
-(defvar emax-bin64 (concat emax-root "/bin64"))
-(defvar emax-mingw64 (concat emax-root "/mingw64/bin"))
-(defvar emax-lisp (concat emax-root "/lisp"))
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
-(setq exec-path (cons emax-bin exec-path))
-(setenv "PATH" (concat emax-bin ";" (getenv "PATH")))
+(when (memq window-system '(w32 pc))
+  ;; Emax Binaries
+  (defvar emax-root (concat (expand-file-name "~") "/emax"))
+  (defvar emax-bin (concat emax-root "/bin"))
+  (defvar emax-bin64 (concat emax-root "/bin64"))
+  (defvar emax-mingw64 (concat emax-root "/mingw64/bin"))
+  (defvar emax-lisp (concat emax-root "/lisp"))
 
-(setq exec-path (cons emax-bin64 exec-path))
-(setenv "PATH" (concat emax-bin64 ";" (getenv "PATH")))
+  (setq exec-path (cons emax-bin exec-path))
+  (setenv "PATH" (concat emax-bin ";" (getenv "PATH")))
 
-(setq exec-path (cons emax-mingw64 exec-path))
-(setenv "PATH" (concat emax-mingw64 ";" (getenv "PATH")))
+  (setq exec-path (cons emax-bin64 exec-path))
+  (setenv "PATH" (concat emax-bin64 ";" (getenv "PATH")))
 
-(setenv "PATH" (concat "C:\\msys64\\usr\\bin;C:\\msys64\\mingw64\\bin;" (getenv "PATH")))
+  (setq exec-path (cons emax-mingw64 exec-path))
+  (setenv "PATH" (concat emax-mingw64 ";" (getenv "PATH")))
 
-(dolist (dir '("~/bin/" "~/emax/" "~/emax/bin/" "~/emax/bin64/" "~/emax/mingw64/bin/" "~/emax/lisp/" "~/emax/elpa/"))
-  (add-to-list 'load-path dir))
+  (setenv "PATH" (concat "C:\\msys64\\usr\\bin;C:\\msys64\\mingw64\\bin;" (getenv "PATH")))
+
+  (dolist (dir '("~/bin/" "~/emax/" "~/emax/bin/" "~/emax/bin64/" "~/emax/mingw64/bin/" "~/emax/lisp/" "~/emax/elpa/"))
+    (add-to-list 'load-path dir))
+)
 
 ;; *scratch* is immortal
 (add-hook 'kill-buffer-query-functions
@@ -101,7 +106,7 @@
  '(org-trello-files (quote ("~/org/trello.org" "~/org/ebd.org")) nil (org-trello))
  '(package-selected-packages
    (quote
-	(perspective srefactor lispy cider exec-path-from-shell go-mode window-purpose evil pod-mode flycheck-perl6 perl6-mode which-key ob-clojurescript alchemist newlisp-mode flycheck-elixir elixir-mode smex ido-completing-read+ flx-ido ido-vertical-mode projectile add-node-modules-path delight transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2)))
+	(free-keys org-caldav perspective srefactor lispy cider exec-path-from-shell go-mode window-purpose evil pod-mode flycheck-perl6 perl6-mode which-key ob-clojurescript alchemist newlisp-mode flycheck-elixir elixir-mode smex ido-completing-read+ flx-ido ido-vertical-mode projectile add-node-modules-path delight transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2)))
  '(safe-local-variable-values (quote ((flycheck-disabled-checkers emacs-lisp-checkdoc)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

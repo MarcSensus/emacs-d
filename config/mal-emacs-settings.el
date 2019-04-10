@@ -53,6 +53,21 @@
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "C-x o") 'window-swap-states)
 (global-set-key (kbd "M-p") 'cperl-perldoc)
+(global-set-key (kbd "<f5>") 'switch-to-buffer)
+
+;; Swatch Internet Time
+(setq display-time-string-forms
+     '(24-hours ":" minutes " "
+       (itime-string 24-hours minutes seconds t)
+       (if mail
+	   " Mail"
+	 ""))
+     display-time-interval 5)
+(display-time-mode 1)
+
+(setq erc-button-alist
+	      '("@\\([0-9]+\\)"
+		0 t itime-message 1))
 
 ;; Font Settings
 ;;(set-frame-font "Fira Code 10" nil t)
