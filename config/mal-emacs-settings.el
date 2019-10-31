@@ -13,6 +13,9 @@
   (setq-default indent-tabs-mode t)
   (setq-default tab-width 4)
   (setq tab-stop-list (number-sequence 4 200 4))
+  ;; Errors to ignore.
+  '(warning-suppress-types '((undo discard-info)))
+  ;;(add-to-list 'warning-suppress-types '(undo discard-info))
   ;; Show column number and line number.
   (setq-default column-number-indicator-zero-based nil)
   (dolist (mode '(column-number-mode line-number-mode))
@@ -111,5 +114,5 @@
   )
 
 ;; Startup
-(split-window-horizontally)
+;;(split-window-horizontally)
 ;;(add-hook 'window-setup-hook 'toggle-frame-maximized t)

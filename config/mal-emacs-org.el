@@ -58,6 +58,11 @@
   ox-minutes
   :ensure t)
 
+;; org-pandoc-export-as-*
+;(use-package
+;  ox-pandoc
+;  :ensure t)
+
 (use-package
   org-chef
   :ensure t)

@@ -48,7 +48,13 @@
   :mode (("README\\.md\\'" . gfm-mode)
 		 ("\\.md\\'" . markdown-mode)
 		 ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :init (setq markdown-command "/usr/bin/multimarkdown"))
+
+(use-package
+  pandoc-mode
+  :ensure t
+										;:init (add-hook 'markdown-mode-hook 'pandoc-mode))
+  )
 
 (use-package
   elisp-format
@@ -71,7 +77,14 @@
   (add-hook 'rust-mode-hook 'rainbow-delimiters-mode))
 
 (use-package
+  nyan-mode
+  :ensure t
+  :config (setq nyan-animate-nyancat t
+				nyan-wavy-trail t))
+
+(use-package
   dashboard
+  :ensure t
   :config (dashboard-setup-startup-hook))
 
 ;; ;; Workgroup support.
@@ -80,6 +93,18 @@
 ;;   :ensure t
 ;;   :config (setq wg-session-load-on-start nil)
 ;;   (workgroups-mode 1))
+
+;; Deft - Search based note taking.
+(use-package
+  deft
+  :ensure t
+  ;;bind ("<f8>" . deft)
+  :commands (deft)
+  :config (setq deft-directory "~/notes"
+				deft-recursive t
+				deft-extensions '("txt" "md" "org" "js")
+				deft-use-filename-as-title t
+				deft-auto-save-interval 0))
 
 ;; EWW
 (defun my/eww-toggle-images ()
@@ -104,7 +129,15 @@
   projectile
   :ensure t
   :config (projectile-mode t)
+  (setq projectile-project-search-path '("~/sgit/" "~/go/"))
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (global-set-key (kbd "s-c") #'projectile-find-file)
+  (projectile-register-project-type 'npm '("package.json")
+									:compile "npm install"
+									:test "npm test"
+									:run "npm start"
+									:test-suffix ".spec")
   (help/on-windows
    (setq projectile-indexing-method 'alien))
   :diminish projectile-mode)
@@ -159,4 +192,9 @@
 ;; Free Keys
 (use-package
   free-keys
+  :ensure t)
+
+;; How Do I: Stackexchange query
+(use-package
+  howdoyou
   :ensure t)

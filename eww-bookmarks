@@ -1,5 +1,6 @@
 ;; Auto-generated file; don't edit
-((:url "https://nullprogram.com/blog/2013/02/06/" :title "How to Make an Emacs Minor Mode « null program" :time "Tue Jul  3 09:59:47 2018")
+((:url "http://doc.rix.si/cce/cce-emacs-core.html" :title "Complete Computing Environment: Core Emacs" :time "Tue Apr 16 21:15:05 2019")
+ (:url "https://nullprogram.com/blog/2013/02/06/" :title "How to Make an Emacs Minor Mode « null program" :time "Tue Jul  3 09:59:47 2018")
  (:url "https://www.reddit.com/r/emacs/" :title "M-x emacs-reddit" :time "Mon May 14 15:59:56 2018")
  (:url "https://github.com/emacs-mirror/emacs/blob/master/etc/NEWS.26" :title "emacs/NEWS.26 at master · emacs-mirror/emacs · GitHub" :time "Mon May  7 16:26:08 2018")
  (:url "https://www.reddit.com/r/emacs/comments/8hbp8e/what_window_manager_and_terminal_emulator_do_you/" :title "reddit: the front page of the internet" :time "Mon May  7 15:16:06 2018")

@@ -1,3 +1,5 @@
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (setq gc-cons-threshold 64000000)
 (add-hook 'after-init-hook (lambda ()
                             ;; restore after startup
@@ -90,7 +92,7 @@
 (toc:load-config-file '("mal-emacs-settings.el" "mal-emacs-org.el" "mal-emacs-javascript.el"
 						"mal-emacs-perl.el" "mal-emacs-misc.el"))
 
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (desktop-read)
 
 (custom-set-variables
@@ -99,15 +101,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   (quote
-	("7527f3308a83721f9b6d50a36698baaedc79ded9f6d5bd4e9a28a22ab13b3cb1" default)))
- '(org-agenda-files (quote ("~/org/sensus.org")))
+   '("7527f3308a83721f9b6d50a36698baaedc79ded9f6d5bd4e9a28a22ab13b3cb1" default))
+ '(org-agenda-files '("~/org/sensus-2019.org"))
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
- '(org-trello-files (quote ("~/org/trello.org" "~/org/ebd.org")) nil (org-trello))
+ '(org-trello-files '("~/org/trello.org" "~/org/ebd.org") nil (org-trello))
  '(package-selected-packages
-   (quote
-	(free-keys org-caldav perspective srefactor lispy cider exec-path-from-shell go-mode window-purpose evil pod-mode flycheck-perl6 perl6-mode which-key ob-clojurescript alchemist newlisp-mode flycheck-elixir elixir-mode smex ido-completing-read+ flx-ido ido-vertical-mode projectile add-node-modules-path delight transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package rainbow-delimiters prettier-js bind-key f workgroups2)))
- '(safe-local-variable-values (quote ((flycheck-disabled-checkers emacs-lisp-checkdoc)))))
+   '(howdoyou dumb-jump flymake-elixir format-all nyan-mode deft rainbow-delimiters npm-mode ox-pandoc dockerfile-mode docker-compose-mode free-keys org-caldav perspective srefactor lispy cider exec-path-from-shell go-mode window-purpose evil pod-mode flycheck-perl6 perl6-mode which-key ob-clojurescript alchemist newlisp-mode flycheck-elixir elixir-mode smex ido-completing-read+ flx-ido ido-vertical-mode projectile add-node-modules-path delight transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package prettier-js bind-key f workgroups2))
+ '(safe-local-variable-values '((flycheck-disabled-checkers emacs-lisp-checkdoc))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

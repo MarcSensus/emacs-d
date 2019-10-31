@@ -238,3 +238,6 @@ other, future frames."
 
 (defun set-wy-theme ()
   (load-file "~/.emacs.d/git-packages/weyland-yutani-theme.el"))
+
+(defun set-synthwave-theme ()
+  (load-file "~/.emacs.d/git-packages/emacs-synthwave-theme/synthwave-theme.el"))

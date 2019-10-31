@@ -1,3 +1,6 @@
+;;; All Dev Modes ;;;
+
+
 ;;; PERL 5 ;;;
 ;; Replace perl mode with cperl mode globally.
 (defalias 'perl-mode 'cperl-mode)
@@ -76,10 +79,31 @@
   :config
   (require 'srefactor-lisp)
   (semantic-mode 1) ;; -> this is optional for Lisp
-    
-    (define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-    (define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-    (global-set-key (kbd "M-RET o") 'srefactor-lisp-one-line)
-    (global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
-    (global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
-    (global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer))
+
+  (define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+  (define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+  (global-set-key (kbd "M-RET o") 'srefactor-lisp-one-line)
+  (global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
+  (global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
+  (global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer))
+
+;;; Docker ;;;
+(use-package
+  docker-compose-mode
+  :ensure t)
+(use-package
+  dockerfile-mode
+  :ensure t
+  :mode "Dockerfile\\'"
+  :interpreter "dockerfile")
+
+;;; Universal ;;;
+(use-package
+  format-all
+  :ensure t)
+
+(use-package
+  dumb-jump
+  :ensure t
+  :config
+  (dumb-jump-mode))
