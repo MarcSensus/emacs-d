@@ -97,6 +97,45 @@
   :mode "Dockerfile\\'"
   :interpreter "dockerfile")
 
+;;; R and Statistics ;;;
+(use-package
+  ess
+  :ensure t
+  :init (require 'ess-site)
+  :config
+  (setq ess-S-assign-key (kbd "C-="))
+  (ess-toggle-S-assign-key t) ; enable above key definition
+  ;; leave my underscore key alone!
+  (ess-toggle-underscore nil))
+
+;;; CMake ;;;
+(use-package
+  cmake-mode
+  :ensure t)
+
+;;; C# ;;;
+(use-package
+  csharp-mode
+  :ensure t
+  :mode ("\\.cs\\'" . csharp-mode))
+
+(use-package
+  omnisharp
+  :ensure t
+  :hook (csharp-mode . omnisharp-mode)
+  :config
+  (eval-after-load 'company '(add-to-list 'company-backends #'company-omnisharp)))
+
+(use-package
+  dotnet
+  :ensure t
+  :hook (csharp-mode . dotnet-mode))
+
+(add-to-list 'auto-mode-alist
+			 '("\\.csproj\\'" . (lambda () (xml-mode))))
+
+(provide 'init-dotnet)
+
 ;;; Universal ;;;
 (use-package
   format-all

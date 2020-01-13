@@ -5,7 +5,7 @@
                             ;; restore after startup
                             (setq gc-cons-threshold 800000)))
 
-(server-start)
+(if (not (server-running-p)) (server-start))
 ;; Don't debug on recoverable errors.
 (setq debug-on-error nil)
 
@@ -106,7 +106,7 @@
  '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(org-trello-files '("~/org/trello.org" "~/org/ebd.org") nil (org-trello))
  '(package-selected-packages
-   '(howdoyou dumb-jump flymake-elixir format-all nyan-mode deft rainbow-delimiters npm-mode ox-pandoc dockerfile-mode docker-compose-mode free-keys org-caldav perspective srefactor lispy cider exec-path-from-shell go-mode window-purpose evil pod-mode flycheck-perl6 perl6-mode which-key ob-clojurescript alchemist newlisp-mode flycheck-elixir elixir-mode smex ido-completing-read+ flx-ido ido-vertical-mode projectile add-node-modules-path delight transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package prettier-js bind-key f workgroups2))
+   '(omnisharp-mode dotnet omnisharp csharp-mode cmake-mode ess howdoyou dumb-jump flymake-elixir format-all nyan-mode deft rainbow-delimiters npm-mode ox-pandoc dockerfile-mode docker-compose-mode free-keys org-caldav perspective srefactor lispy cider exec-path-from-shell go-mode window-purpose evil pod-mode flycheck-perl6 perl6-mode which-key ob-clojurescript alchemist newlisp-mode flycheck-elixir elixir-mode smex ido-completing-read+ flx-ido ido-vertical-mode projectile add-node-modules-path delight transpose-frame org-trello dashboard org-beautify-theme mbo70s-theme exotica-theme realgud tern magit dash-functional lispyscript-mode esup json-mode solarized-theme org-chef ox-mediawiki ox-minutes ob-mongo jira-markup-mode pandoc-mode markdown-mode markdown-mode+ markdown-preview-mode markdownfmt org-jira ## flycheck flylisp json-navigator indium js-comint elisp-format xref-js2 js2-refactor js2-mode ppd-sr-speedbar neotree nord-theme rebecca-theme cyberpunk-theme use-package prettier-js bind-key f workgroups2))
  '(safe-local-variable-values '((flycheck-disabled-checkers emacs-lisp-checkdoc))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
