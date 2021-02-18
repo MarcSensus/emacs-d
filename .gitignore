@@ -80,4 +80,7 @@ ido.last
 /semanticdb
 ac-comphist.dat
 
+# caches
+.cache
+
 # End of https://www.gitignore.io/api/emacs

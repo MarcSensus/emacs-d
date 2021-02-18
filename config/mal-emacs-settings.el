@@ -75,7 +75,8 @@
 ;; Font Settings
 ;;(set-frame-font "Fira Code 10" nil t)
 ;;(setq-default default-font "Fira Code")
-(setq-default default-font "Hack")
+;;(setq-default default-font "Hack")
+(setq-default default-font "JetBrains Mono")
 (setq-default default-font-size 10)
 (set-font-size)
 (when window-system (set-frame-size (selected-frame) 180 50))
